@@ -61,7 +61,7 @@ export const Home = () => {
     <div id='canvas_page_content' className='flex flex-col items-center min-h-screen justify-start bg-black p-6'>
 
         {/* Div with titles */}
-        <div id='title' className='mt-[2%]'>
+        <div id='title'>
             <h1 className='text-white text-5xl text-center m-[5%] text-justify leading-relaxed break-words hyphens-auto'>Welcome</h1>
             <h1 className='text-white text-3xl text-center m-[5%] text-justify leading-relaxed break-words hyphens-auto'
             >
@@ -146,6 +146,11 @@ export const Home = () => {
             </div>
 
         </div>
+
+        <footer className="w-full text-center py-4 text-gray-200 text-md bg-black">
+            Made by Julio Alvarado <br/>
+             <a className='text-blue-600' href='https://github.com/Jualvu/mnist_neural_network_ui'>Github</a>
+        </footer>
 
         
     </div>
