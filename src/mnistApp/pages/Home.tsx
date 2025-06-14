@@ -62,14 +62,14 @@ export const Home = () => {
 
         {/* Div with titles */}
         <div id='title'>
-            <h1 className='text-white text-5xl text-center m-[5%] text-justify leading-relaxed break-words hyphens-auto'>Welcome</h1>
-            <h1 className='text-white text-3xl text-center m-[5%] text-justify leading-relaxed break-words hyphens-auto'
+            <h1 className='text-white text-5xl text-center m-[5%]  leading-relaxed break-words hyphens-auto'>Welcome</h1>
+            <h1 className='text-white text-3xl text-center m-[5%]  leading-relaxed break-words hyphens-auto'
             >
                 Try out my two personal Neural Networks.
-                One trained using just numpy and the other on plain python.
+                One developed using just numpy and the other one using just plain python.
                 They were trained on the MNIST dataset to recognize numbers from 0-9.</h1>
 
-                <p className='text-md m-[5%] text-gray-400 text-center mb-4 text-justify leading-relaxed break-words hyphens-auto'>
+                <p className=' text-md m-[5%] text-gray-400 text-center mb-4  leading-relaxed break-words hyphens-auto'>
                     [Drawing factors such as proper centering, consistent size, and clear stroke definition can significantly
                     affect prediction accuracy, since the MNIST dataset assumes these conditions by default.]
                 </p>
