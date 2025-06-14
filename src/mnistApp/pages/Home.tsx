@@ -44,6 +44,11 @@ export const Home = () => {
             // console.log(JSON.stringify(object))
 
         }
+        // scroll to the top of the page after giving the results, this helps on the mobile web page implementation
+        window.scrollTo({
+            top: document.body.scrollHeight,
+            behavior: 'smooth'
+        });
             
     }
 
@@ -54,15 +59,24 @@ export const Home = () => {
 
     
     // Whole page div
-    <div id='canvas_page_content' className='flex flex-col items-center min-h-screen justify-start bg-black'>
+    <div id='canvas_page_content' className='flex flex-col items-center min-h-screen justify-start bg-black p-6'>
 
         {/* Div with titles */}
         <div id='title' className='mt-[2%]'>
-            <h1 className='text-white text-5xl text-center m-[5%]'>Welcome</h1>
-            <h1 className='text-white text-3xl text-center m-[5%]'>Try out my personal Neural Network trained using just numpy to recognize numbers from 0-9</h1>
+            <h1 className='text-white text-5xl text-center m-[5%] text-justify leading-relaxed break-words hyphens-auto'>Welcome</h1>
+            <h1 className='text-white text-3xl text-center m-[5%] text-justify leading-relaxed break-words hyphens-auto'
+            >
+                Try out my two personal Neural Networks.
+                One trained using just numpy and the other on plain python.
+                They were trained on the MNIST dataset to recognize numbers from 0-9.</h1>
+
+                <p className='text-md m-[5%] text-gray-400 text-center mb-4 text-justify leading-relaxed break-words hyphens-auto'>
+                    [Drawing factors such as proper centering, consistent size, and clear stroke definition can significantly
+                    affect prediction accuracy, since the MNIST dataset assumes these conditions by default.]
+                </p>
         </div>
 
-        <div className='flex '>
+        <div className='flex mb-10'>
 
             {/* Button to trigger prediction process */}
             <button 
@@ -87,7 +101,7 @@ export const Home = () => {
             {/* Div with canvas */}
             <div id='canvas' className='flex flex-col items-center m-10'>
 
-                <h1 className='text-xl text-white text-center'>Please draw a single number from 0 to 9 here</h1>
+                <h1 className='text-xl text-white text-center mb-10'>Please draw a single number from 0 to 9 here</h1>
                 {/* canvas component */}
                 {/* <Canvas ref={canvasRef}/>  */}
                 <ReactSketchCanvas
@@ -110,11 +124,13 @@ export const Home = () => {
             </div>
 
             {/* Div with 28x28 re-scaled image */}
-            <div id='rescaled-image-container' className='flex flex-col items-center m-10'>
+            <div className='flex flex-col items-center m-10'>
                 <h1 className='text-xl text-white text-center'>28x28 pixel Re-scaled</h1>
-                {/* temporary canvas to load page */}
-                <canvas id='rescaled-image' className='w-[300px] h-[300px] border border-1px' style={{imageRendering: 'pixelated'}}>
-                </canvas>
+                <div id='rescaled-image-container' className='flex flex-col items-center m-10'>
+                    {/* temporary canvas to load page */}
+                    <canvas id='rescaled-image' className='w-[300px] h-[300px] border border-1px' style={{imageRendering: 'pixelated'}}>
+                    </canvas>
+                </div>
             </div>
 
 
@@ -125,8 +141,8 @@ export const Home = () => {
                 <h1 className='text-xl text-white text-center'>Predicted result using model: <span className='text-green-500'>{model_to_use}</span></h1>
                 {/* predictions: number predicted and confidence */}
                 <div id='div_result justify-center m-2'>
-                    <h1 id='predicted_num_result' className='text-3xl text-white text-center m-10'> Number: {predicted_num} </h1>
-                    <h1 id='predicted_confidence_result' className='text-3xl text-white text-center m-10'> Confidence: {predicted_confidence} % </h1>
+                    <h1 id='predicted_num_result' className='text-3xl text-white text-center m-10'> Number: <span className='text-green-500'>{predicted_num} </span></h1>
+                    <h1 id='predicted_confidence_result' className='text-3xl text-white text-center m-10'> Confidence: <span className='text-green-500'>{predicted_confidence} %</span> </h1>
                 </div>
             </div>
 
