@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const sendImageToAPI = async (pixelArray: number[], model_to_use: string) => {
   try {
-    const response = await axios.post('http://localhost:5000/predict', {
+    const response = await axios.post(import.meta.env.VITE_API_URL + '/predict', {
       image_sample: pixelArray, // send image 28x28 data
       model_to_use: model_to_use // send model chosen to use
     }, {
