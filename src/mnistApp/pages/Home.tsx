@@ -12,6 +12,16 @@ export const Home = () => {
 
     const handleClearClick = () => {
         canvasRef.current?.clearCanvas();
+        //Create empty canvas to clean up the re-scaled 28x28 image
+        const container = document.getElementById("rescaled-image-container");
+        if(container){
+            container.innerHTML = "";
+            const canvas = document.createElement('canvas');
+            canvas.className = 'w-[300px] h-[300px] border border-1px';
+            canvas.style.imageRendering = 'pixelated';
+            container?.appendChild(canvas);
+        }
+
     };
 
     const handleModelChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -74,16 +84,11 @@ export const Home = () => {
                     affect prediction accuracy, since the MNIST dataset assumes these conditions by default.]
                 </p>
         </div>
-
-        <div className='flex mb-10'>
-
-            {/* Button to trigger prediction process */}
-            <button 
-            className='mt-2 mx-4 bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-xl shadow-md transition duration-200'
-            onClick={makePrediction}>
-                Make Prediction
-            </button>
-
+        {/* Div for the model selection */}
+        <div className='inline-block mt-10 mb-10'>
+            <h1 className='text-md m-[5%] text-gray-200 text-center mb-4  leading-relaxed break-words hyphens-auto'>
+                Select Neural Network to use
+            </h1>
             <select id="model" className='bg-gray-800 mt-2 mx-4 py-2 px-4 text-white rounded-xl'
             onChange={handleModelChange}
             value={model_to_use}
@@ -111,13 +116,21 @@ export const Home = () => {
                 strokeColor="white"
                 strokeWidth={25}
                 />
-                {/* Clean canvas button */}
-                <button
-                className="mt-2 bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-xl shadow-md transition duration-200"
-                onClick={handleClearClick}
-                >
-                    Clean Canvas
-                </button>
+                <div className='flex'>
+                    {/* Button to trigger prediction process */}
+                    <button 
+                    className='mt-2 mx-4 bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-xl shadow-md transition duration-200'
+                    onClick={makePrediction}>
+                        Make Prediction
+                    </button>
+                    {/* Clean canvas button */}
+                    <button
+                    className="mt-2 mx-4 bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-xl shadow-md transition duration-200"
+                    onClick={handleClearClick}
+                    >
+                        Clean Canvas
+                    </button>
+                </div>
                 
 
             </div>
