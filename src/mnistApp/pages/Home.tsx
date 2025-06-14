@@ -75,9 +75,9 @@ export const Home = () => {
             <h1 className='text-white text-5xl text-center m-[5%]  leading-relaxed break-words hyphens-auto'>Welcome</h1>
             <h1 className='text-white text-3xl text-center m-[5%]  leading-relaxed break-words hyphens-auto'
             >
-                Try out my two personal Neural Networks.
-                One developed using just numpy and the other one using just plain python.
-                They were trained on the MNIST dataset to recognize numbers from 0-9.</h1>
+                Try out two Neural Networks I built from scratch.
+                One developed using only NumPy, and the other using pure Python without external libraries.
+                Both were trained on the MNIST dataset to recognize handwritten numbers from 0 to 9.</h1>
 
                 <p className=' text-md m-[5%] text-gray-400 text-center mb-4  leading-relaxed break-words hyphens-auto'>
                     [Drawing factors such as proper centering, consistent size, and clear stroke definition can significantly
