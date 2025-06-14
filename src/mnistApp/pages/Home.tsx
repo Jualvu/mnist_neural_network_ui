@@ -16,7 +16,6 @@ export const Home = () => {
 
     const handleModelChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setModel_to_use(event.target.value);
-    console.log(event.target.value);
   };
 
     const makePrediction = async() => {
@@ -37,7 +36,7 @@ export const Home = () => {
 
             const response = await sendImageToAPI(result['28x28_pixels_data'], model_to_use);
             
-            console.log(response)
+            // console.log(response)
 
             setPredicted_num(response['prediction'])
             setPredicted_confidence(response['confidence'])

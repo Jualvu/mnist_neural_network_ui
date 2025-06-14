@@ -11,7 +11,7 @@ export const sendImageToAPI = async (pixelArray: number[], model_to_use: string)
       }
     });
 
-    console.log('Prediction:', response.data);
+    // console.log('Prediction:', response.data);
     return response.data;
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
